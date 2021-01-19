@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { Page } from 'src/app/admin/interfaces/Page';
+import { ProductService } from 'src/app/services/product.service';
 import { Product } from '../../interfaces/Product';
-import { Page } from 'src/app/interfaces/Page';
 
 @Component({
   selector: 'app-list-product',
@@ -23,6 +23,17 @@ export class ListProductComponent implements OnInit {
       (res: Page) => this.products = res.content,
       (err: any) => console.log(err)
     );
+  }
+
+  public deleteProduct(product: Product): any {
+    this.productService.deleteProduct(product.id).subscribe(
+      (res: any) => {
+        this.getProducts();
+        console.log(res);
+      },
+      (err: any) => console.log(err));
+    
+    
   }
 
 }

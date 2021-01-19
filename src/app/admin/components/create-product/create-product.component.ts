@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Page } from 'src/app/interfaces/Page';
-import { QuantityUnit } from 'src/app/interfaces/QuantityUnit';
 import { ProductService } from 'src/app/services/product.service';
-import { QuantityUnitService } from 'src/app/services/quantity-unit.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -12,31 +11,22 @@ import { QuantityUnitService } from 'src/app/services/quantity-unit.service';
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor(private productService: ProductService, private quantityUnitService: QuantityUnitService) { }
-
-  public quantityUnits: QuantityUnit[] = [];
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getQuantityUnits();
   }
 
   public createProduct(form: NgForm): any {
     this.productService.createProduct(form.value).subscribe(
       (res: any) => {
         form.reset();
+        this.router.navigate(['product/list']);
         console.log(res);
       },
       (err: any) => {
         console.log(err);
       }
     )
-  }
-
-  public getQuantityUnits(): any {
-    this.quantityUnitService.getQuantityUnits().subscribe(
-      (res: Page) => this.quantityUnits = res.content,
-      (err: any) => console.log(err)
-    );
   }
 
 }

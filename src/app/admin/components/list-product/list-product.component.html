@@ -9,6 +9,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
@@ -19,14 +20,15 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let product of products">
+                            <td>{{product.id}}</td>
                             <td>{{product.name}}</td>
                             <td>{{product.description}}</td>
                             <td>{{product.price}}</td>
-                            <td>{{product.currency}}</td>
+                            <td>{{product.currencyUnit}}</td>
                             <td>{{product.quantity}}</td>
                             <td>
                                 <button class="btn btn-primary btn-sm">Edit</button>
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <button class="btn btn-danger btn-sm" (click)="deleteProduct(product)">Delete</button>
                             </td>
                         </tr>
                     </tbody>

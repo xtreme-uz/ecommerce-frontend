@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment'
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../interfaces/Product';
+import { Product } from '../admin/interfaces/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +25,10 @@ export class ProductService {
   }
 
   public updateProduct(product: Product): any {
-    return this.http.put(`${this.PRODUCT_URL}/${product._id}`, product);
+    return this.http.put(`${this.PRODUCT_URL}/${product.id}`, product);
   }
 
-  public deleteProduct(id: number): any {
+  public deleteProduct(id?: number): any {
     return this.http.delete(`${this.PRODUCT_URL}/${id}`);
   }
 

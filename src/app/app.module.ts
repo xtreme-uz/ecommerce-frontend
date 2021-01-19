@@ -6,17 +6,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ListProductComponent } from './components/list-product/list-product.component';
-import { CreateProductComponent } from './components/create-product/create-product.component';
-import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { HeaderComponent } from './admin/components/header/header.component';
+import { ListProductComponent } from './admin/components/list-product/list-product.component';
+import { EditProductComponent } from './admin/components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListProductComponent,
-    CreateProductComponent,
+    ListProductComponent,
     EditProductComponent
   ],
   imports: [
