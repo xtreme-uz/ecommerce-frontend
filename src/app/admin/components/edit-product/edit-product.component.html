@@ -1,33 +1,33 @@
 <div class="row">
     <div class="col-4 mx-auto">
         <div class="card">
-            <form>
-                <div class="card-header">Create Product</div>
+            <form #createForm="ngForm" (ngSubmit)="editProduct(updateForm)">
+                <div class="card-header">Edit Product</div>
+                <input type="hidden" name="id" [(ngModel)]="currentProduct.id">
                 <div class="card-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <input type="text" name="name" [(ngModel)]="currentProduct.name" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Description">
+                        <input type="text" name="description" [(ngModel)]="currentProduct.description" class="form-control" placeholder="Description">
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Price">
+                        <input type="number" name="price" [(ngModel)]="currentProduct.price" class="form-control" placeholder="Price">
                     </div>
                     <div class="form-group">
-                        <select id="inputState" class="form-control" placeholder="Currency">
-                            <option selected>USD</option>
+                        <select id="inputState" name="currency" [(ngModel)]="currentProduct.currency" class="form-control" placeholder="Currency">
+                            <option>USD</option>
                             <option>UZS</option>
                             <option>EUR</option>
                             <option>RUB</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Quantity">
+                        <input type="number" name="quantity" [(ngModel)]="currentProduct.quantity" class="form-control" placeholder="Quantity">
                     </div>
-                    <!-- TODO quantity unit from api -->
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>

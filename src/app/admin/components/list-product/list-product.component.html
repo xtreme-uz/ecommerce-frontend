@@ -27,7 +27,7 @@
                             <td>{{product.currencyUnit}}</td>
                             <td>{{product.quantity}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">Edit</button>
+                                <button class="btn btn-primary btn-sm" [routerLink]="['/product/edit']" routerLinkActive="router-link-active" >Edit</button>
                                 <button class="btn btn-danger btn-sm" (click)="deleteProduct(product)">Delete</button>
                             </td>
                         </tr>
